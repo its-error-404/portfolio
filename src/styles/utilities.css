@@ -1,0 +1,71 @@
+/* =============================================================================
+   LAYOUT PRIMITIVES + REVEAL ANIMATION
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+  /* Skip layout/paint for sections still well off-screen. `contain-intrinsic-size`
+     keeps the scrollbar honest so anchor links and scroll position stay stable. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+.section + .section {
+  padding-top: 0;
+}
+.section-divider {
+  border-top: 1px solid var(--border);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+/* --- Scroll reveal -------------------------------------------------------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-4) var(--ease-out),
+    transform var(--dur-4) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
