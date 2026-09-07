@@ -43,7 +43,9 @@ export const site: SiteConfig = {
     linkedin: "https://www.linkedin.com/in/karthikeyan-a-dev/",
     twitter: "",
   },
-  lastUpdatedISO: "2026-09", // month + year; bump when you refresh content
+  // Auto-set by the deploy workflow to the last commit that changed src/data/.
+  // The fallback is only used in local dev; edit it if you build+deploy by hand.
+  lastUpdatedISO: import.meta.env.VITE_CONTENT_UPDATED || "2026-09",
 };
 
 /* --- Date formatting helpers ------------------------------------------------ */
