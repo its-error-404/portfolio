@@ -38,9 +38,15 @@ Node 18+.
 | `src/data/impact.ts` | Engineering Impact — the six counts |
 | `src/data/exploring.ts` | "Currently learning" cards |
 
-"Last Updated" shows month + year (`SEP 2026`). Bump `site.lastUpdatedISO` and the
-per-item `updatedISO` fields when you refresh content — `"2026-09"`, or `"2026"`
-for a year only.
+### "Last updated"
+
+The global "Last updated" (`SEP 2026` in the hero, footer, contact, project cards)
+is set automatically at deploy time to the date of the newest commit that touched
+`src/data/`. Edit a data file, push, and it moves; a CSS-only or config commit
+leaves it where it is. Local dev falls back to `site.lastUpdatedISO`.
+
+Per-item `updatedISO` fields (each experience entry, blog card, etc.) are still
+manual — `"2026-09"`, or `"2026"` for a year only.
 
 ---
 
