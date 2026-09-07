@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://karthikeyan.dev/sitemap.xml
+Sitemap: https://its-error-404.github.io/portfolio/sitemap.xml

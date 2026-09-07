@@ -32,11 +32,12 @@ export const site: SiteConfig = {
   name: "Karthikeyan A",
   role: "Software Engineer",
   positioning: "I build and ship production web apps.",
-  url: "https://karthikeyan.dev", // placeholder — replace with the deployed domain
+  url: "https://its-error-404.github.io/portfolio",
   location: "Chennai, India",
   openToWork: true,
   email: "karthi.vmpak@gmail.com",
-  resumeUrl: "/resume.pdf",
+  // Resolved against Vite's base ("/portfolio/" on Pages, "/" on a root domain).
+  resumeUrl: `${import.meta.env.BASE_URL}resume.pdf`,
   socials: {
     github: "https://github.com/its-error-404",
     linkedin: "https://www.linkedin.com/in/karthikeyan-a-dev/",
